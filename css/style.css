@@ -477,3 +477,11 @@
     padding-right: 0;
     border-right: none;
 }
+
+.alert{
+    color: green;
+    font-weight: bolder;
+    background-color: white;
+    margin-top: 12px;
+    display: none;
+}
