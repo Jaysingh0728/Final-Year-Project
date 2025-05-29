@@ -39,7 +39,7 @@
     }, 3000);
 
     //reset form
-    document.getElementById('resForm').reset();
+    // document.getElementById('resForm').reset();o
   }
 
 
@@ -57,16 +57,23 @@
 
   //Send email 
   function sendMail(){
-    let params={
-      name: getElementVal('name'),
-      email: getElementVal('email'),
-      datetime: getElementVal('datetime'),
-      select: getElementVal('select1'),
-      message: getElementVal('message')
+    try{var params={
+      name : getElementVal('name'),
+      email : getElementVal('email'),
+      datetime : getElementVal('datetime'),
+      select : getElementVal('select1'),
+      message : getElementVal('message'),
     }
 
     emailjs.send('service_3ntclr8','template_wvy91dm',params);
+  }catch(e) {
+    console.log(e)
+  }finally{
+    document.getElementById("resForm").reset()
   }
+  }
+
+
   const getElementVal = (id) =>{
     return document.getElementById(id).value;
   }
