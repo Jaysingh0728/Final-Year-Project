@@ -16,6 +16,7 @@
   var resFormDB = firebase.database().ref("resForm");
 
   document.getElementById('resForm').addEventListener("submit", submitForm);
+  document.getElementById('resForm').addEventListener("submit", sendMail);
 
   function submitForm(e){
     e.preventDefault();
@@ -54,6 +55,20 @@
     });
   }
 
+  //Send email 
+  function sendMail(){
+    let params={
+      name: getElementVal('name'),
+      email: getElementVal('email'),
+      datetime: getElementVal('datetime'),
+      select: getElementVal('select1'),
+      message: getElementVal('message')
+    }
+
+    emailjs.send('service_3ntclr8','template_wvy91dm',params);
+  }
   const getElementVal = (id) =>{
     return document.getElementById(id).value;
   }
+
+  
